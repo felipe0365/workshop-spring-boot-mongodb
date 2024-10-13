@@ -1,6 +1,7 @@
 package br.com.compassuol.workshopmongo.resources;
 
 import br.com.compassuol.workshopmongo.domain.User;
+import br.com.compassuol.workshopmongo.dto.UserDTO;
 import br.com.compassuol.workshopmongo.services.UserService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,10 @@ public class UserResource {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<UserDTO>> findAll() {
         List<User> list = userService.findAll();
-        return ResponseEntity.ok().body(list);
+        List<UserDTO> listDTO = list.stream().map(UserDTO::new).toList();
+        return ResponseEntity.ok().body(listDTO);
 
     }
 }
