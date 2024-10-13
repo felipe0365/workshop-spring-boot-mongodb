@@ -2,6 +2,7 @@ package br.com.compassuol.workshopmongo.dto;
 
 import br.com.compassuol.workshopmongo.domain.User;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serial;
@@ -9,6 +10,7 @@ import java.io.Serializable;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class UserDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
