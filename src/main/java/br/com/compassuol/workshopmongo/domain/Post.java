@@ -14,7 +14,7 @@ import java.util.Date;
 @Setter
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Document
+@Document(collection = "post")
 public class Post implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
