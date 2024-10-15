@@ -1,5 +1,6 @@
 package br.com.compassuol.workshopmongo.resources;
 
+import br.com.compassuol.workshopmongo.domain.Post;
 import br.com.compassuol.workshopmongo.domain.User;
 import br.com.compassuol.workshopmongo.dto.UserDTO;
 import br.com.compassuol.workshopmongo.services.UserService;
@@ -56,5 +57,11 @@ public class UserResource {
         user = userService.update(user);
         return ResponseEntity.noContent().build();
 
+    }
+
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User user = userService.findById(id);
+        return ResponseEntity.ok(user.getPosts());
     }
 }
